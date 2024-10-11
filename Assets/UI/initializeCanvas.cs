@@ -12,9 +12,11 @@ public class initializeCanvas : MonoBehaviour
     [SerializeField] TMP_Text textcontent;
     void Start()
     {
+        textbox = gameObject;
+        textcontent.text = "i am a textbox";
         //hide canvas by default
         textbox.SetActive(false);
-        textcontent.text = "i am a textbox";
+        
     }
 
     // Update is called once per frame
