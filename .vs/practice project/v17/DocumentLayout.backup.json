@@ -1,0 +1,102 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Kirby\\practice project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D430DF71-1326-F6F4-FF5B-015DB5355B4A}|Assembly-CSharp.csproj|c:\\users\\kirby\\practice project\\assets\\ui\\initializecanvas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D430DF71-1326-F6F4-FF5B-015DB5355B4A}|Assembly-CSharp.csproj|solutionrelative:assets\\ui\\initializecanvas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D430DF71-1326-F6F4-FF5B-015DB5355B4A}|Assembly-CSharp.csproj|c:\\users\\kirby\\practice project\\assets\\interactables\\inspectobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D430DF71-1326-F6F4-FF5B-015DB5355B4A}|Assembly-CSharp.csproj|solutionrelative:assets\\interactables\\inspectobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D430DF71-1326-F6F4-FF5B-015DB5355B4A}|Assembly-CSharp.csproj|C:\\Users\\Kirby\\practice project\\assets\\camera\\followplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D430DF71-1326-F6F4-FF5B-015DB5355B4A}|Assembly-CSharp.csproj|solutionrelative:assets\\camera\\followplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D430DF71-1326-F6F4-FF5B-015DB5355B4A}|Assembly-CSharp.csproj|C:\\Users\\Kirby\\practice project\\assets\\character\\initializeplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D430DF71-1326-F6F4-FF5B-015DB5355B4A}|Assembly-CSharp.csproj|solutionrelative:assets\\character\\initializeplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D430DF71-1326-F6F4-FF5B-015DB5355B4A}|Assembly-CSharp.csproj|C:\\Users\\Kirby\\practice project\\assets\\character\\charactermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D430DF71-1326-F6F4-FF5B-015DB5355B4A}|Assembly-CSharp.csproj|solutionrelative:assets\\character\\charactermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "initializeCanvas.cs",
+              "DocumentMoniker": "C:\\Users\\Kirby\\practice project\\Assets\\UI\\initializeCanvas.cs",
+              "RelativeDocumentMoniker": "Assets\\UI\\initializeCanvas.cs",
+              "ToolTip": "C:\\Users\\Kirby\\practice project\\Assets\\UI\\initializeCanvas.cs",
+              "RelativeToolTip": "Assets\\UI\\initializeCanvas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T23:10:48.927Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "initializePlayer.cs",
+              "DocumentMoniker": "C:\\Users\\Kirby\\practice project\\Assets\\character\\initializePlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\character\\initializePlayer.cs",
+              "ToolTip": "C:\\Users\\Kirby\\practice project\\Assets\\character\\initializePlayer.cs",
+              "RelativeToolTip": "Assets\\character\\initializePlayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T21:52:37.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "inspectObject.cs",
+              "DocumentMoniker": "C:\\Users\\Kirby\\practice project\\Assets\\Interactables\\inspectObject.cs",
+              "RelativeDocumentMoniker": "Assets\\Interactables\\inspectObject.cs",
+              "ToolTip": "C:\\Users\\Kirby\\practice project\\Assets\\Interactables\\inspectObject.cs",
+              "RelativeToolTip": "Assets\\Interactables\\inspectObject.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAqwBkAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T21:50:02.991Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "characterMovement.cs",
+              "DocumentMoniker": "C:\\Users\\Kirby\\practice project\\Assets\\character\\characterMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\character\\characterMovement.cs",
+              "ToolTip": "C:\\Users\\Kirby\\practice project\\Assets\\character\\characterMovement.cs",
+              "RelativeToolTip": "Assets\\character\\characterMovement.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBwAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T19:26:44.536Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "followPlayer.cs",
+              "DocumentMoniker": "C:\\Users\\Kirby\\practice project\\Assets\\Camera\\followPlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\Camera\\followPlayer.cs",
+              "ToolTip": "C:\\Users\\Kirby\\practice project\\Assets\\Camera\\followPlayer.cs",
+              "RelativeToolTip": "Assets\\Camera\\followPlayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T19:21:44.452Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
