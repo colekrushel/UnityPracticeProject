@@ -7,7 +7,6 @@ using UnityEngine.UIElements;
 public class initializeCanvas : MonoBehaviour
 {
     // Start is called before the first frame update
-    //Canvas canvas;
     GameObject textbox;
     [SerializeField] TMP_Text textcontent;
     void Start()

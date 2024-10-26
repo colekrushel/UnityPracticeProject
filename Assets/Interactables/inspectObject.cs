@@ -4,42 +4,52 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class inspectObject : MonoBehaviour  
+public class inspectObject : MonoBehaviour
 {
-    MeshRenderer indicator;
-    GameObject parent;
-    GameObject textbox;
+    GameObject indicator;
+    [SerializeField] GameObject textbox;
+    GameObject player;
+    MeshRenderer indicatorDisplay;
+    //float pressDelay = 0.5f;
+    //float lastPressedTime = 0f;
     private void Start()
     {
-        parent = transform.parent.gameObject;
-        indicator = GetComponent<MeshRenderer>();
-        indicator.enabled = false;
+        indicator = GameObject.Find("indicator");
+        player = GameObject.Find("playerCharacter");
         textbox = GameObject.Find("inspectTextbox");
-        //set pos of indicator above parent
-        float height = parent.GetComponent<MeshRenderer>().bounds.size.y;
-        indicator.transform.position = new Vector3(indicator.transform.position.x, height, indicator.transform.position.z);
+        indicatorDisplay = indicator.GetComponent<MeshRenderer>();
+        indicatorDisplay.enabled = false;
+
+
+
     }
     private void Update()
     {
-        //if enabled then rotate 
-
-        if (indicator.enabled)
+        //if enabled then rotate and display
+        if (indicatorDisplay.enabled)
         {
-            indicator.transform.Rotate(0, 1, 0);
+            //keep the indicator above the player
+            indicator.transform.position = player.transform.position + new Vector3(0, 3, 0);
+            indicator.transform.Rotate(0, 20 * Time.deltaTime, 0);
             //check for interaction key
             if (Input.GetKeyDown("e"))
             {
                 print("e pressed");
-                
+                //only allow user to toggle every certain amount of time
+                //if (lastPressedTime + pressDelay > Time.unscaledTime)
+                //{
+                //    return;
+                //}
+                //lastPressedTime = Time.unscaledTime;     
                 if (textbox != null)
                 {
                     //toggle textbox
-                    textbox.SetActive(!textbox.activeSelf);
-                    
+                    bool textboxState = textbox.activeInHierarchy;
+                    print("set active");
+                    textbox.SetActive(!textboxState);
                 }
                 else
                 {
-
                     print("where the heck is the textbox?");
                 }
             }
@@ -49,20 +59,18 @@ public class inspectObject : MonoBehaviour
     //trigger when player enters bounding box
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
-            print("triggered");
-            indicator.enabled = true;
+            EventManager.OnObjectInteract();
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        print("triggered2");
-        if (other.tag == "Player");
+        if (other.tag == "Player")
         {
-            indicator.enabled = false;
-            //hide textbox when player leaves
-            textbox.SetActive(false);
+            EventManager.OnObjectLeave();
         }
     }
 }
+
+
