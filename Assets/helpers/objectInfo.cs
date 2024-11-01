@@ -12,6 +12,13 @@ public class objectInfo
     public static Dictionary<string, Vector3> teleLocations = new Dictionary<string, Vector3>()
     {
         { "PyramidArch", new Vector3(0, 0, 0)  }
+        
+    };
+    public static Dictionary<string, string> sceneLocations = new Dictionary<string, string>()
+    {
+        { "PyramidArch", "PyramidScene" },
+        { "PyramidDoor", "SampleScene" }
+
     };
 
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Indicator
   - Interactable
+  - Teleporter
   layers:
   - Default
   - TransparentFX

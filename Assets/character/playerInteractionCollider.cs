@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerInteractionCollider : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class playerInteractionCollider : MonoBehaviour
     Collider playerCollider;
     Dictionary<string, string> desc;
     Dictionary<string, Vector3> locs;
+    Dictionary<string, string> scenes;
     void Start()
     {
         //initialize objects
@@ -20,9 +22,12 @@ public class playerInteractionCollider : MonoBehaviour
         player = gameObject;
         indicator = GameObject.Find("indicator");
         textbox = GameObject.Find("inspectTextbox");
+        //set textbox deactive by default
+        textbox.SetActive(false);
         playerCollider = gameObject.GetComponent<Collider>();
         desc = objectInfo.objectDescs;
         locs = objectInfo.teleLocations;
+        scenes = objectInfo.sceneLocations;
         //ignore collision between player and this collision box
         //Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), player.GetComponent<Collider>());
 
@@ -76,7 +81,15 @@ public class playerInteractionCollider : MonoBehaviour
         {
             print("tele");
             //move player according to the teleporter's location in the dictionary
-            player.transform.position = locs[other.name];
+            //need to disable player controller in order to teleport
+            //player.GetComponent<CharacterController>().enabled = false;
+            //player.transform.position = locs[other.name];
+            //player.GetComponent<CharacterController>().enabled = true;
+
+            //change the scene
+            string sceneName = scenes[other.name];
+            SceneManager.LoadScene(sceneName);
+
         }
         print(other.tag);
     }

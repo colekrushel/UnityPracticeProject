@@ -13,8 +13,8 @@ public class initializeCanvas : MonoBehaviour
     {
         textbox = gameObject;
         textcontent.text = "i am a textbox";
-        //hide canvas by default
-        textbox.SetActive(false);
+        //hide canvas by default - DONT DO THIS THE CODE CANT FIND INACTIVE OBJECTS
+        //textbox.SetActive(false);
         
     }
 
