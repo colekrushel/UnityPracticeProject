@@ -6,22 +6,30 @@ using UnityEngine.SceneManagement;
 
 public class playerInteractionCollider : MonoBehaviour
 {
+    //options
+    const int loadDist = 10;
+
+
     // Start is called before the first frame update
     GameObject collisionObject;
     GameObject indicator;
     GameObject textbox;
     GameObject player;
+    chunkManager chunkSystem;
     [SerializeField] GameObject destinationRoom;
     Collider playerCollider;
     Dictionary<string, string> desc;
     Dictionary<string, Vector3> locs;
     Dictionary<string, string> roomLocs;
     Dictionary<string, GameObject> rooms;
-    Dictionary<string, string> loadZones;
-    Dictionary<string, string> chunkDirs;
-    string enteredFrom;
+    
+
+    int chunkX;
+    int chunkY;
     void Start()
     {
+        chunkX = 0;
+        chunkY = 0;
         //initialize objects
         print("start");
         player = gameObject;
@@ -30,13 +38,14 @@ public class playerInteractionCollider : MonoBehaviour
         destinationRoom = GameObject.Find("DefaultRoom");
         //set textbox deactive by default
         textbox.SetActive(false);
+        //get components
         playerCollider = gameObject.GetComponent<Collider>();
+        chunkSystem = GameObject.Find("ChunkManager").GetComponent<chunkManager>();
+        //read in dictionary info
         desc = objectInfo.objectDescs;
         locs = objectInfo.teleLocations;
         roomLocs = objectInfo.roomLocations;
         rooms = objectInfo.rooms;
-        loadZones = objectInfo.chunkTriggers;
-        chunkDirs = objectInfo.chunkSides;
         //ignore collision between player and this collision box
         //Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), player.GetComponent<Collider>());
 
@@ -70,6 +79,66 @@ public class playerInteractionCollider : MonoBehaviour
                 {
                     print("where the heck is the textbox?");
                 }
+            }
+        }
+        //check if player is a certain distance from the chunk border; if so, then load in an appropriate new chunk
+
+        //get center of current chunk
+        Vector3 relativePos = player.transform.position - chunkSystem.transform.position;
+
+        //print(relativePos);
+        Vector3 currChunkPos = chunkSystem.getCurrChunk(relativePos);
+        //update player chunkX and chunkY
+        chunkX = (int) currChunkPos.x / 100;
+        chunkY = (int) currChunkPos.z / 100 * -1;
+        //get difference between player pos and chunk pos
+        //print(relativePos);
+        //print(currChunkPos);
+        Vector3 diff = relativePos - currChunkPos;
+        //print(chunkX);
+        //print(chunkY);
+        //print(diff);
+        if (diff.x > loadDist)
+        {
+            //dont load chunk if already exists
+            if (chunkSystem.isChunk(chunkX+1, chunkY))
+            {
+                //dont load
+            } else
+            {
+                chunkSystem.loadChunk("R", chunkX, chunkY);
+            }
+            
+        } if(diff.x < loadDist * -1) {
+            if (chunkSystem.isChunk(chunkX-1, chunkY))
+            {
+                //dont load
+                
+            } else
+            {
+                chunkSystem.loadChunk("L", chunkX, chunkY);
+            }
+            
+        } if (diff.z < loadDist * -1)
+        {
+            if(chunkSystem.isChunk(chunkX, chunkY + 1))
+            {
+                //dont load
+                
+            } else
+            {
+                chunkSystem.loadChunk("D", chunkX, chunkY);
+            }
+        } if(diff.z > loadDist)
+        {
+            if (chunkSystem.isChunk(chunkX, chunkY - 1))
+            {
+                //dont load
+                
+            }
+            else
+            {
+                chunkSystem.loadChunk("U", chunkX, chunkY);
             }
         }
     }
@@ -118,36 +187,6 @@ public class playerInteractionCollider : MonoBehaviour
             indicator.transform.position = new Vector3(0, 0, 0);
             //disable textbox
             textbox.SetActive(false);
-        }
-        if (other.tag == "ChunkTrigger")
-        {
-            //load in chunk
-            //get direction
-            string direction = chunkDirs[other.name];
-            //load prefab
-            GameObject newChunk = rooms[loadZones[other.name]];
-            //discriminate based on direction
-            if (direction == "R")
-            {
-                //instantiate prefab to the right of the load zone
-                Instantiate(newChunk, newChunk.transform.position, Quaternion.identity);
-                //move prefab
-                newChunk.transform.position = other.transform.position + new Vector3(33, 2, -2);
-                //disable this loader as chunk is now loaded
-                other.gameObject.SetActive(false);
-                //disable the left loader on the new chunk
-                //GameObject leftLoader = newChunk.Find("LeftLoader");
-            }
-            else if (direction == "L")
-            {
-                Instantiate(newChunk, newChunk.transform.position, Quaternion.identity);
-                //move prefab
-                newChunk.transform.position = other.transform.position - new Vector3(33, -2, 2);
-                //disable this loader as chunk is now loaded
-                other.gameObject.SetActive(false);
-                //disable the right loader on the new chunk
-            }
-            print(other.tag);
         }
     }
     private void OnTriggerExit(Collider other)

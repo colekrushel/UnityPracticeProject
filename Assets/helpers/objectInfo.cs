@@ -7,7 +7,9 @@ public class objectInfo
     public static Dictionary<string, string> objectDescs = new Dictionary<string, string>()
     {
         { "Pyramid", "what a strange looking pyramid" },
-        { "BlueRect", "this rectangle is very blue" }
+        { "BlueRect", "this rectangle is very blue" },
+        { "StrangeCone", "what is this cone doing here?" },
+        { "Lamp", "lamp." }
     };
     public static Dictionary<string, Vector3> teleLocations = new Dictionary<string, Vector3>()
     {
